@@ -17,9 +17,9 @@ export default function MapsPage() {
         <ArrowLeft className="h-6 w-6 text-gray-800 dark:text-white" />
       </button>
 
-      {/* Google Maps Iframe - Óvalo Santa Anita, Lima, Perú */}
+      {/* Google Maps con marcador rojo en Óvalo Santa Anita - W2WP+452 */}
       <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3902.0438699999995!2d-76.97607!3d-12.04644!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c71a8e27a703%3A0x1cd8a93b6a0c0c1b!2s%C3%93valo%20Santa%20Anita!5e0!3m2!1ses-419!2spe!4v1732962838000!5m2!1ses-419!2spe"
+        src="https://maps.google.com/maps?q=W2WP%2B452,+Santa+Anita,+Lima,+Peru&z=18&output=embed"
         width="100%"
         height="100%"
         style={{ border: 0 }}
