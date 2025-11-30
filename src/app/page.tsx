@@ -5,9 +5,9 @@ import { ThemeToggle } from "../components/theme-toggle";
 import Image from "next/image";
 import Link from "next/link";
 import { MapPin } from "lucide-react";
+import Carousel from "../components/carousel";
 
 // Import images
-import bannerImg from "../assets/images/b1.webp";
 import profileImg from "../assets/images/profile.jpg";
 
 // Import data
@@ -24,10 +24,8 @@ export default function Home() {
     <div className="min-h-screen w-full bg-zinc-50 font-sans dark:bg-black">
       <main className=" max-w-3xl mx-auto flex flex-col items-center p-4 gap-4">
         <ThemeToggle />
-        {/* Banner */}
-        <div className="relative h-80 w-full rounded-xl overflow-hidden">
-          <Image src={bannerImg} alt="Banner" fill className="object-cover" />
-        </div>
+        {/* Carousel */}
+        <Carousel />
 
         {/* Content */}
         <section className="flex flex-col w-full items-center gap-6 p-6 bg-orange-200 dark:bg-orange-900/20 rounded-xl">
