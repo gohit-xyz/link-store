@@ -26,7 +26,17 @@ export default function Home() {
   const [activeTab, setActiveTab] = useState<TabType>("servicios");
 
   const currentServices = SERVICES;
-  const currentProducts = PRODUCTS;
+  // Sort products by price (ascending) - parse the price string such as "S/ 1,299" to a number
+  const currentProducts = PRODUCTS.slice().sort((a, b) => {
+    const parsePrice = (p?: string) => {
+      if (!p) return Number.POSITIVE_INFINITY; // put items without price at the end
+      // Remove non-numeric characters (currency symbols, spaces, and thousands separators)
+      const digits = p.replace(/[^0-9.-]+/g, "");
+      const num = Number(digits);
+      return Number.isNaN(num) ? Number.POSITIVE_INFINITY : num;
+    };
+    return parsePrice(a.price) - parsePrice(b.price);
+  });
 
   return (
     <div className="min-h-screen w-full bg-zinc-50 dark:bg-black font-sans relative overflow-hidden transition-colors duration-300">
