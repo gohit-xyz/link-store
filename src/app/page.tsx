@@ -1,4 +1,5 @@
 import { Heart, Moon, Sun } from "lucide-react";
+import { Button } from "../components/ui/button";
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
         <h1>Hello world</h1>
         <Moon className="h-6 w-6 stroke-2 text-[#ff4d6d]" />
         <Sun size={24} strokeWidth={2} color="#ff4d6d" />
+        <Button className="cursor-pointer">Button</Button>
       </main>
     </div>
   );
