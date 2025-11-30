@@ -13,6 +13,13 @@ import profileImg from "../assets/images/profile.jpg";
 // Import data
 import { SERVICES, PRODUCTS, type Product, type Service } from "../data/items";
 
+// Import social media icons
+import { InstagramIcon } from "../components/social-media/instagram";
+import { FacebookIcon } from "../components/social-media/facebook";
+import { TikTokIcon } from "../components/social-media/tiktok";
+import { YouTubeIcon } from "../components/social-media/youtube";
+import { TwitterIcon } from "../components/social-media/twitter";
+
 type TabType = "servicios" | "productos";
 
 export default function Home() {
@@ -49,6 +56,55 @@ export default function Home() {
               mas los mejores producto.
             </p>
           </header>
+
+          {/* Social Media Icons */}
+          <div className="flex gap-4 justify-center">
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group p-3 bg-white dark:bg-zinc-700 rounded-full shadow-md hover:shadow-lg transition-all duration-300 hover:scale-110"
+              aria-label="Instagram"
+            >
+              <InstagramIcon className="w-6 h-6 text-pink-600 dark:text-pink-400 group-hover:text-pink-500" />
+            </a>
+            <a
+              href="https://facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group p-3 bg-white dark:bg-zinc-700 rounded-full shadow-md hover:shadow-lg transition-all duration-300 hover:scale-110"
+              aria-label="Facebook"
+            >
+              <FacebookIcon className="w-6 h-6 text-blue-600 dark:text-blue-400 group-hover:text-blue-500" />
+            </a>
+            <a
+              href="https://tiktok.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group p-3 bg-white dark:bg-zinc-700 rounded-full shadow-md hover:shadow-lg transition-all duration-300 hover:scale-110"
+              aria-label="TikTok"
+            >
+              <TikTokIcon className="w-6 h-6 text-zinc-900 dark:text-white group-hover:text-zinc-700" />
+            </a>
+            <a
+              href="https://youtube.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group p-3 bg-white dark:bg-zinc-700 rounded-full shadow-md hover:shadow-lg transition-all duration-300 hover:scale-110"
+              aria-label="YouTube"
+            >
+              <YouTubeIcon className="w-6 h-6 text-red-600 dark:text-red-400 group-hover:text-red-500" />
+            </a>
+            <a
+              href="https://twitter.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group p-3 bg-white dark:bg-zinc-700 rounded-full shadow-md hover:shadow-lg transition-all duration-300 hover:scale-110"
+              aria-label="Twitter"
+            >
+              <TwitterIcon className="w-6 h-6 text-sky-500 dark:text-sky-400 group-hover:text-sky-600" />
+            </a>
+          </div>
 
           {/* Tab Navigation */}
           <div className="w-full">
