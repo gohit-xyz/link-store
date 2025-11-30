@@ -134,7 +134,7 @@ export default function Home() {
             <div className="relative p-1.5 glass rounded-2xl inline-flex w-full">
               {/* Sliding background */}
               <div
-                className={`absolute top-1.5 bottom-1.5 w-[calc(50%-6px)] bg-gradient-primary rounded-xl transition-transform duration-300 ease-out shadow-glow-sm ${
+                className={`absolute top-1.5 bottom-1.5 w-[calc(50%-6px)] bg-blue-500 rounded-xl transition-transform duration-300 ease-out shadow-glow-sm ${
                   activeTab === "productos"
                     ? "translate-x-[calc(100%+6px)]"
                     : "translate-x-0"
