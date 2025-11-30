@@ -74,7 +74,7 @@ ${
   };
 
   return (
-    <div className="min-h-screen w-full bg-gradient-to-br from-zinc-100 via-zinc-50 to-zinc-100 dark:from-zinc-950 dark:via-zinc-900 dark:to-black font-sans">
+    <div className="min-h-screen w-full bg-linear-to-br from-zinc-100 via-zinc-50 to-zinc-100 dark:from-zinc-950 dark:via-zinc-900 dark:to-black font-sans">
       <main className="max-w-2xl mx-auto flex flex-col items-center p-4 md:p-8">
         {/* Botón de regreso */}
         <div className="w-full mb-6">
@@ -118,7 +118,11 @@ ${
           </div>
 
           {/* Formulario */}
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form
+            onSubmit={handleSubmit}
+            className="space-y-6"
+            suppressHydrationWarning
+          >
             {/* Me Interesa (Producto) */}
             <div>
               <label className="block text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-2">
@@ -130,6 +134,7 @@ ${
                   value={formData.producto}
                   onChange={handleChange}
                   required
+                  suppressHydrationWarning
                   className="w-full px-4 py-4 bg-zinc-300 dark:bg-zinc-600 text-zinc-900 dark:text-white rounded-2xl appearance-none focus:outline-none focus:ring-2 focus:ring-green-500 transition-all duration-300 cursor-pointer pr-12"
                 >
                   <option value="">Selecciona un producto</option>
@@ -154,6 +159,8 @@ ${
                 value={formData.nombre}
                 onChange={handleChange}
                 required
+                suppressHydrationWarning
+                autoComplete="name"
                 className="w-full px-4 py-4 bg-zinc-300 dark:bg-zinc-600 text-zinc-900 dark:text-white rounded-2xl focus:outline-none focus:ring-2 focus:ring-green-500 transition-all duration-300 placeholder-zinc-500 dark:placeholder-zinc-400"
                 placeholder=""
               />
@@ -171,6 +178,8 @@ ${
                   value={formData.direccion}
                   onChange={handleChange}
                   required={tipoServicio === "delivery"}
+                  suppressHydrationWarning
+                  autoComplete="street-address"
                   className="w-full px-4 py-4 bg-zinc-300 dark:bg-zinc-600 text-zinc-900 dark:text-white rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300 placeholder-zinc-500 dark:placeholder-zinc-400"
                   placeholder=""
                 />
@@ -188,6 +197,7 @@ ${
                   name="codigoPais"
                   value={formData.codigoPais}
                   onChange={handleChange}
+                  suppressHydrationWarning
                   className="w-20 px-3 py-4 bg-zinc-300 dark:bg-zinc-600 text-zinc-900 dark:text-white rounded-2xl focus:outline-none focus:ring-2 focus:ring-green-500 transition-all duration-300 text-center"
                   placeholder="+51"
                 />
@@ -197,6 +207,8 @@ ${
                   value={formData.telefono}
                   onChange={handleChange}
                   required
+                  suppressHydrationWarning
+                  autoComplete="tel"
                   className="flex-1 px-4 py-4 bg-zinc-300 dark:bg-zinc-600 text-zinc-900 dark:text-white rounded-2xl focus:outline-none focus:ring-2 focus:ring-green-500 transition-all duration-300 placeholder-zinc-500 dark:placeholder-zinc-400"
                   placeholder=""
                 />
@@ -206,7 +218,7 @@ ${
             {/* Botón de envío WhatsApp */}
             <button
               type="submit"
-              className="cursor-pointer w-full max-w-xs mx-auto block py-4 px-8 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-full shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-3"
+              className="cursor-pointer w-full max-w-xs mx-auto py-4 px-8 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-full shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-3"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
