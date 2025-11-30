@@ -66,7 +66,7 @@ export default function Home() {
 
           {/* Header Content - Modern Typography */}
           <header className="text-center space-y-3 max-w-lg">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-gradient-primary rounded-full text-white text-sm font-medium mb-2">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-gradient-to-r from-cyan-500 to-indigo-600 rounded-full text-white text-sm font-medium mb-2">
               <MapPin className="w-4 h-4" />
               <span>Ovalo Santa Anita</span>
             </div>
@@ -177,7 +177,7 @@ export default function Home() {
                     style={{ animationDelay: `${index * 0.1}s`, opacity: 0 }}
                   >
                     <div className="flex items-center gap-4">
-                      <div className="w-12 h-12 rounded-xl bg-gradient-primary flex items-center justify-center shadow-glow-sm flex-shrink-0">
+                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500 to-indigo-600 flex items-center justify-center shadow-glow-sm flex-shrink-0">
                         <Sparkles className="w-6 h-6 text-white" />
                       </div>
                       <h3 className="text-lg font-semibold text-zinc-800 dark:text-white group-hover:text-cyan-600 dark:group-hover:text-cyan-300 transition-colors">
@@ -236,17 +236,16 @@ export default function Home() {
               </div>
             )}
           </div>
+          {/* GPS Button - Modern Floating Glass */}
+          <Link
+            href="/maps"
+            className="fixed bg-blue-500 bottom-6 right-6 w-14 h-14 glass hover:shadow-glow-sm transition-all duration-300 flex items-center justify-center group hover-lift z-40 animate-fade-in rounded-full shadow-lg"
+            aria-label="Ir a mapas"
+            style={{ animationDelay: "0.4s", opacity: 0 }}
+          >
+            <MapPin className="w-6 h-6 text-white group-hover:text-cyan-100 transition-colors" />
+          </Link>
         </section>
-
-        {/* GPS Button - Modern Floating Glass */}
-        <Link
-          href="/maps"
-          className="fixed dark:bg-blue-500 bottom-6 right-156 w-14 h-14 glass hover:shadow-glow-sm transition-all duration-300 flex items-center justify-center group hover-lift z-40 animate-fade-in rounded-full shadow-lg"
-          aria-label="Ir a mapas"
-          style={{ animationDelay: "0.4s", opacity: 0 }}
-        >
-          <MapPin className="w-6 h-6 dark:text-white group-hover:text-cyan-100 transition-colors" />
-        </Link>
       </main>
     </div>
   );
