@@ -88,7 +88,7 @@ ${
         </div>
 
         {/* Contenedor del formulario */}
-        <div className="w-full bg-white dark:bg-zinc-800 rounded-3xl shadow-xl p-8 md:p-12 border border-zinc-100 dark:border-zinc-700">
+        <div className="w-full bg-white dark:bg-zinc-800 rounded-3xl shadow-xl p-5 md:p-12 border border-zinc-100 dark:border-zinc-700">
           {/* Toggle Delivery/Recoger */}
           <div className="flex gap-3 mb-8 bg-zinc-400 dark:bg-zinc-700 rounded-full p-2">
             <button
@@ -209,7 +209,7 @@ ${
                   required
                   suppressHydrationWarning
                   autoComplete="tel"
-                  className="flex-1 px-4 py-4 bg-zinc-50 dark:bg-zinc-600 border border-zinc-200 dark:border-zinc-500 text-zinc-900 dark:text-white rounded-2xl focus:outline-none focus:ring-2 focus:ring-green-500 transition-all duration-300 placeholder-zinc-400 dark:placeholder-zinc-400"
+                  className="flex-1 min-w-0 px-4 py-4 bg-zinc-50 dark:bg-zinc-600 border border-zinc-200 dark:border-zinc-500 text-zinc-900 dark:text-white rounded-2xl focus:outline-none focus:ring-2 focus:ring-green-500 transition-all duration-300 placeholder-zinc-400 dark:placeholder-zinc-400"
                   placeholder=""
                 />
               </div>
