@@ -11,14 +11,15 @@ import Carousel from "../components/carousel";
 import profileImg from "../assets/images/profile.jpg";
 
 // Import data
-import { SERVICES, PRODUCTS } from "../data/items";
+import { SERVICES, PRODUCTS, type Product, type Service } from "../data/items";
 
 type TabType = "servicios" | "productos";
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState<TabType>("servicios");
 
-  const currentItems = activeTab === "servicios" ? SERVICES : PRODUCTS;
+  const currentServices = SERVICES;
+  const currentProducts = PRODUCTS;
 
   return (
     <div className="min-h-screen w-full bg-zinc-50 font-sans dark:bg-black">
@@ -77,20 +78,62 @@ export default function Home() {
 
           {/* Items Display */}
           <div className="w-full space-y-3">
-            {currentItems.map((item, index) => (
-              <div
-                key={item.id}
-                className={`w-full p-4 rounded-lg shadow-sm hover:shadow-md transition-all ${
-                  index % 2 === 0
-                    ? "bg-white dark:bg-zinc-700"
-                    : "bg-zinc-100 dark:bg-zinc-800"
-                }`}
-              >
-                <h3 className="text-lg font-medium text-zinc-900 dark:text-white">
-                  ✅ {item.title}
-                </h3>
+            {activeTab === "servicios" ? (
+              // Servicios en lista simple
+              currentServices.map((item, index) => (
+                <div
+                  key={item.id}
+                  className={`w-full p-4 rounded-lg shadow-sm hover:shadow-md transition-all ${
+                    index % 2 === 0
+                      ? "bg-white dark:bg-zinc-700"
+                      : "bg-zinc-100 dark:bg-zinc-800"
+                  }`}
+                >
+                  <h3 className="text-lg font-medium text-zinc-900 dark:text-white">
+                    ✅ {item.title}
+                  </h3>
+                </div>
+              ))
+            ) : (
+              // Productos en cards con imágenes
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {currentProducts.map((item) => (
+                  <div
+                    key={item.id}
+                    className="group bg-white dark:bg-zinc-800 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden hover:scale-[1.02]"
+                  >
+                    {/* Imagen del producto */}
+                    <div className="relative h-48 overflow-hidden bg-zinc-100 dark:bg-zinc-700">
+                      <Image
+                        src={item.image}
+                        alt={item.title}
+                        fill
+                        className="object-cover group-hover:scale-110 transition-transform duration-300"
+                      />
+                      {/* Badge de categoría */}
+                      <div className="absolute top-3 left-3 bg-green-500 text-white text-xs font-semibold px-3 py-1 rounded-full">
+                        {item.category}
+                      </div>
+                    </div>
+
+                    {/* Contenido del producto */}
+                    <div className="p-4 space-y-2">
+                      <h3 className="text-lg font-bold text-zinc-900 dark:text-white line-clamp-1">
+                        {item.title}
+                      </h3>
+                      <p className="text-sm text-zinc-600 dark:text-zinc-400 line-clamp-2">
+                        {item.description}
+                      </p>
+                      {item.price && (
+                        <p className="text-xl font-bold text-green-600 dark:text-green-400">
+                          {item.price}
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                ))}
               </div>
-            ))}
+            )}
           </div>
         </section>
       </main>
