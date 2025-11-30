@@ -30,7 +30,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen w-full bg-zinc-50 font-sans dark:bg-black">
-      <main className=" max-w-3xl mx-auto flex flex-col items-center p-4 gap-4">
+      <main className="max-w-3xl mx-auto flex flex-col items-center p-4 gap-4 relative">
         <ThemeToggle />
         {/* Carousel */}
         <Carousel />
@@ -192,16 +192,16 @@ export default function Home() {
             )}
           </div>
         </section>
-      </main>
 
-      {/* Fixed GPS Button */}
-      <Link
-        href="/maps"
-        className="fixed bottom-6 right-6 w-14 h-14 bg-green-500 hover:bg-green-600 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center z-50 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
-        aria-label="Ir a mapas"
-      >
-        <MapPin className="w-6 h-6" />
-      </Link>
+        {/* GPS Button - Sticky at bottom right */}
+        <Link
+          href="/maps"
+          className="self-end sticky bottom-4 w-14 h-14 bg-green-500 hover:bg-green-600 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 z-40"
+          aria-label="Ir a mapas"
+        >
+          <MapPin className="w-6 h-6" />
+        </Link>
+      </main>
     </div>
   );
 }
