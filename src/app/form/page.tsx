@@ -80,7 +80,7 @@ ${
         <div className="w-full mb-6">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 px-4 py-2 text-zinc-700 dark:text-zinc-300 hover:text-green-500 dark:hover:text-green-400 transition-colors duration-300 group"
+            className="inline-flex items-center gap-2 px-4 py-2 text-zinc-700 dark:text-zinc-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors duration-300 group"
           >
             <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform duration-300" />
             <span className="font-medium">Volver al inicio</span>
@@ -96,7 +96,7 @@ ${
               onClick={() => setTipoServicio("delivery")}
               className={`cursor-pointer flex-1 flex items-center justify-center gap-2 py-3 px-6 rounded-full font-semibold transition-all duration-300 ${
                 tipoServicio === "delivery"
-                  ? "bg-green-500 text-white shadow-lg"
+                  ? "bg-blue-500 text-white shadow-lg"
                   : "bg-transparent text-zinc-700 dark:text-zinc-300"
               }`}
             >
@@ -108,7 +108,7 @@ ${
               onClick={handleRecoger}
               className={`cursor-pointer flex-1 flex items-center justify-center gap-2 py-3 px-6 rounded-full font-semibold transition-all duration-300 ${
                 tipoServicio === "recoger"
-                  ? "bg-white text-zinc-800 shadow-lg"
+                  ? "bg-blue-500 text-white shadow-lg"
                   : "bg-transparent text-zinc-700 dark:text-zinc-300"
               }`}
             >
@@ -161,7 +161,7 @@ ${
                 required
                 suppressHydrationWarning
                 autoComplete="name"
-                className="w-full px-4 py-4 bg-zinc-300 dark:bg-zinc-600 text-zinc-900 dark:text-white rounded-2xl focus:outline-none focus:ring-2 focus:ring-green-500 transition-all duration-300 placeholder-zinc-500 dark:placeholder-zinc-400"
+                className="w-full px-4 py-4 bg-zinc-300 dark:bg-zinc-600 text-zinc-900 dark:text-white rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300 placeholder-zinc-500 dark:placeholder-zinc-400"
                 placeholder=""
               />
             </div>
