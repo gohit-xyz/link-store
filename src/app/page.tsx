@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { ThemeToggle } from "../components/theme-toggle";
 import Image from "next/image";
+import Link from "next/link";
+import { MapPin } from "lucide-react";
 
 // Import images
 import bannerImg from "../assets/images/banner.webp";
@@ -54,7 +56,7 @@ export default function Home() {
             <div className="flex gap-2 p-1 bg-zinc-200 dark:bg-zinc-800 rounded-lg">
               <button
                 onClick={() => setActiveTab("servicios")}
-                className={`flex-1 py-2 px-4 rounded-md font-medium transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 ${
+                className={`flex-1 py-2 px-4 cursor-pointer rounded-md font-medium transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 ${
                   activeTab === "servicios"
                     ? "bg-green-500 text-white hover:bg-green-600 focus:ring-green-500"
                     : "bg-transparent text-zinc-700 dark:text-zinc-300 hover:bg-zinc-300 dark:hover:bg-zinc-700 focus:ring-zinc-400"
@@ -64,7 +66,7 @@ export default function Home() {
               </button>
               <button
                 onClick={() => setActiveTab("productos")}
-                className={`flex-1 py-2 px-4 rounded-md font-medium transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 ${
+                className={`flex-1 py-2 px-4 cursor-pointer rounded-md font-medium transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 ${
                   activeTab === "productos"
                     ? "bg-green-500 text-white hover:bg-green-600 focus:ring-green-500"
                     : "bg-transparent text-zinc-700 dark:text-zinc-300 hover:bg-zinc-300 dark:hover:bg-zinc-700 focus:ring-zinc-400"
@@ -77,10 +79,14 @@ export default function Home() {
 
           {/* Items Display */}
           <div className="w-full space-y-3">
-            {currentItems.map((item) => (
+            {currentItems.map((item, index) => (
               <div
                 key={item.id}
-                className="w-full p-4 bg-white dark:bg-zinc-800 rounded-lg shadow-sm hover:shadow-md transition-shadow"
+                className={`w-full p-4 rounded-lg shadow-sm hover:shadow-md transition-all ${
+                  index % 2 === 0
+                    ? "bg-white dark:bg-zinc-700"
+                    : "bg-zinc-100 dark:bg-zinc-800"
+                }`}
               >
                 <h3 className="text-lg font-medium text-zinc-900 dark:text-white">
                   ✅ {item.title}
@@ -90,6 +96,15 @@ export default function Home() {
           </div>
         </section>
       </main>
+
+      {/* Fixed GPS Button */}
+      <Link
+        href="/maps"
+        className="fixed bottom-6 right-6 w-14 h-14 bg-green-500 hover:bg-green-600 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center z-50 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
+        aria-label="Ir a mapas"
+      >
+        <MapPin className="w-6 h-6" />
+      </Link>
     </div>
   );
 }
