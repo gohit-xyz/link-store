@@ -215,4 +215,43 @@
   .hover-lift:hover {
     transform: translateY(-4px);
   }
+
+  /* Swiper Custom Navigation */
+  .swiper-button-next,
+  .swiper-button-prev {
+    background-color: rgba(255, 255, 255, 0.9);
+    width: 38px !important;
+    height: 38px !important;
+    border-radius: 50%;
+    color: #00a8ff !important; /* Blue arrow */
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 8px;
+  }
+
+  .dark .swiper-button-next,
+  .dark .swiper-button-prev {
+    background-color: rgba(30, 30, 30, 0.8);
+    color: #00a8ff !important;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .swiper-button-next:after,
+  .swiper-button-prev:after {
+    font-size: 24px !important;
+    font-weight: bold;
+  }
+
+  .swiper-button-next:hover,
+  .swiper-button-prev:hover {
+    background-color: #fff;
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(0, 168, 255, 0.4);
+  }
+
+  .dark .swiper-button-next:hover,
+  .dark .swiper-button-prev:hover {
+    background-color: #2a2a2a;
+    border-color: rgba(0, 168, 255, 0.5);
+  }
 }
