@@ -71,7 +71,7 @@ export default function Home() {
               <span>Ovalo Santa Anita</span>
             </div>
             <h1 className="text-4xl font-bold bg-gradient-to-r from-white via-cyan-200 to-indigo-300 bg-clip-text text-transparent">
-              Tienda Online
+              Nombre de Tienda
             </h1>
             <p className="text-zinc-400 dark:text-zinc-500 leading-relaxed">
               Encuentra los mejores productos en una sola plataforma. Calidad y
@@ -241,7 +241,7 @@ export default function Home() {
         {/* GPS Button - Modern Floating Glass */}
         <Link
           href="/maps"
-          className="fixed dark:bg-blue-500 bottom-6 right-150 w-14 h-14 glass rounded-2xl hover:shadow-glow-sm transition-all duration-300 flex items-center justify-center group hover-lift z-40 animate-fade-in"
+          className="fixed dark:bg-blue-500 bottom-6 right-150 w-14 h-14 glass  hover:shadow-glow-sm transition-all duration-300 flex items-center justify-center group hover-lift z-40 animate-fade-in rounded-full"
           aria-label="Ir a mapas"
           style={{ animationDelay: "0.4s", opacity: 0 }}
         >
