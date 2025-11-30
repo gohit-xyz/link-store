@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import { ThemeToggle } from "../components/theme-toggle";
 import Image from "next/image";
 
@@ -5,7 +8,16 @@ import Image from "next/image";
 import bannerImg from "../assets/images/banner.webp";
 import profileImg from "../assets/images/profile.jpg";
 
+// Import data
+import { SERVICES, PRODUCTS } from "../data/items";
+
+type TabType = "servicios" | "productos";
+
 export default function Home() {
+  const [activeTab, setActiveTab] = useState<TabType>("servicios");
+
+  const currentItems = activeTab === "servicios" ? SERVICES : PRODUCTS;
+
   return (
     <div className="min-h-screen w-full bg-zinc-50 font-sans dark:bg-black">
       <main className=" max-w-3xl mx-auto flex flex-col items-center p-4 gap-4">
@@ -40,13 +52,41 @@ export default function Home() {
           {/* Tab Navigation */}
           <div className="w-full">
             <div className="flex gap-2 p-1 bg-zinc-200 dark:bg-zinc-800 rounded-lg">
-              <button className="flex-1 py-2 px-4 rounded-md bg-green-500 text-white font-medium transition-all hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2">
+              <button
+                onClick={() => setActiveTab("servicios")}
+                className={`flex-1 py-2 px-4 rounded-md font-medium transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 ${
+                  activeTab === "servicios"
+                    ? "bg-green-500 text-white hover:bg-green-600 focus:ring-green-500"
+                    : "bg-transparent text-zinc-700 dark:text-zinc-300 hover:bg-zinc-300 dark:hover:bg-zinc-700 focus:ring-zinc-400"
+                }`}
+              >
                 Servicios
               </button>
-              <button className="flex-1 py-2 px-4 rounded-md bg-transparent text-zinc-700 dark:text-zinc-300 font-medium transition-all hover:bg-zinc-300 dark:hover:bg-zinc-700 focus:outline-none focus:ring-2 focus:ring-zinc-400 focus:ring-offset-2">
+              <button
+                onClick={() => setActiveTab("productos")}
+                className={`flex-1 py-2 px-4 rounded-md font-medium transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 ${
+                  activeTab === "productos"
+                    ? "bg-green-500 text-white hover:bg-green-600 focus:ring-green-500"
+                    : "bg-transparent text-zinc-700 dark:text-zinc-300 hover:bg-zinc-300 dark:hover:bg-zinc-700 focus:ring-zinc-400"
+                }`}
+              >
                 Productos
               </button>
             </div>
+          </div>
+
+          {/* Items Display */}
+          <div className="w-full space-y-3">
+            {currentItems.map((item) => (
+              <div
+                key={item.id}
+                className="w-full p-4 bg-white dark:bg-zinc-800 rounded-lg shadow-sm hover:shadow-md transition-shadow"
+              >
+                <h3 className="text-lg font-medium text-zinc-900 dark:text-white">
+                  ✅ {item.title}
+                </h3>
+              </div>
+            ))}
           </div>
         </section>
       </main>
