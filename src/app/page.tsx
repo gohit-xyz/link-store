@@ -241,11 +241,11 @@ export default function Home() {
         {/* GPS Button - Modern Floating Glass */}
         <Link
           href="/maps"
-          className="self-end sticky bottom-6 w-14 h-14 glass rounded-2xl hover:shadow-glow-sm transition-all duration-300 flex items-center justify-center group hover-lift z-40 animate-fade-in"
+          className="fixed dark:bg-blue-500 bottom-6 right-150 w-14 h-14 glass rounded-2xl hover:shadow-glow-sm transition-all duration-300 flex items-center justify-center group hover-lift z-40 animate-fade-in"
           aria-label="Ir a mapas"
           style={{ animationDelay: "0.4s", opacity: 0 }}
         >
-          <MapPin className="w-6 h-6 text-cyan-400 group-hover:text-cyan-300 transition-colors" />
+          <MapPin className="w-6 h-6 text-white group-hover:text-cyan-300 transition-colors" />
         </Link>
       </main>
     </div>
