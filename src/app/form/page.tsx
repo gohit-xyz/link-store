@@ -64,7 +64,7 @@ ${
     `.trim();
 
     // Número de WhatsApp de destino (cambia este número por el tuyo)
-    const numeroWhatsApp = "51987654321";
+    const numeroWhatsApp = "51969660199";
     const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(
       mensaje
     )}`;
