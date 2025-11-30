@@ -11,7 +11,7 @@ import Carousel from "../components/carousel";
 import profileImg from "../assets/images/profile.jpg";
 
 // Import data
-import { SERVICES, PRODUCTS, type Product, type Service } from "../data/items";
+import { SERVICES, PRODUCTS } from "../data/items";
 
 // Import social media icons
 import { InstagramIcon } from "../components/social-media/instagram";
@@ -144,7 +144,7 @@ export default function Home() {
               {/* Tab buttons */}
               <button
                 onClick={() => setActiveTab("servicios")}
-                className={`relative flex-1 py-3 px-6 rounded-xl font-semibold transition-colors duration-300 z-10 ${
+                className={`relative flex-1 py-3 px-6 rounded-xl font-semibold transition-colors duration-300 z-10 cursor-pointer ${
                   activeTab === "servicios"
                     ? "text-white"
                     : "text-zinc-500 dark:text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200"
@@ -154,7 +154,7 @@ export default function Home() {
               </button>
               <button
                 onClick={() => setActiveTab("productos")}
-                className={`relative flex-1 py-3 px-6 rounded-xl font-semibold transition-colors duration-300 z-10 ${
+                className={`relative flex-1 py-3 px-6 rounded-xl font-semibold transition-colors duration-300 z-10 cursor-pointer ${
                   activeTab === "productos"
                     ? "text-white"
                     : "text-zinc-500 dark:text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200"
@@ -180,7 +180,7 @@ export default function Home() {
                       <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500 to-indigo-600 flex items-center justify-center shadow-glow-sm flex-shrink-0">
                         <Sparkles className="w-6 h-6 text-white" />
                       </div>
-                      <h3 className="text-lg font-semibold text-zinc-800 dark:text-white group-hover:text-cyan-600 dark:group-hover:text-cyan-300 transition-colors">
+                      <h3 className=" text-lg font-semibold text-zinc-800 dark:text-white group-hover:text-cyan-600 dark:group-hover:text-cyan-300 transition-colors">
                         {item.title}
                       </h3>
                     </div>
