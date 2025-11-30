@@ -67,8 +67,8 @@ export default function Home() {
           {/* Header Content - Modern Typography */}
           <header className="text-center space-y-3 max-w-lg">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-gradient-primary rounded-full text-white text-sm font-medium mb-2">
-              <Sparkles className="w-4 h-4" />
-              <span>Tienda Premium</span>
+              <MapPin className="w-4 h-4" />
+              <span>Ovalo Santa Anita</span>
             </div>
             <h1 className="text-4xl font-bold bg-gradient-to-r from-white via-cyan-200 to-indigo-300 bg-clip-text text-transparent">
               Tienda Online
