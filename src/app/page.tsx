@@ -7,7 +7,7 @@ import Link from "next/link";
 import { MapPin } from "lucide-react";
 
 // Import images
-import bannerImg from "../assets/images/banner.webp";
+import bannerImg from "../assets/images/b1.webp";
 import profileImg from "../assets/images/profile.jpg";
 
 // Import data
