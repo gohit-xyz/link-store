@@ -8,6 +8,9 @@ export default function Home() {
       </header>
       <main className="bg-amber-500 container mx-auto flex flex-col items-center p-4">
         {/* Ready for content */}
+
+        <h1>Link Store</h1>
+        <p>Store your links in one place</p>
       </main>
     </div>
   );
