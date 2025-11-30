@@ -236,16 +236,20 @@ export default function Home() {
               </div>
             )}
           </div>
-          {/* GPS Button - Modern Floating Glass */}
-          <Link
-            href="/maps"
-            className="fixed bg-blue-500 bottom-6 right-6 w-14 h-14 glass hover:shadow-glow-sm transition-all duration-300 flex items-center justify-center group hover-lift z-40 animate-fade-in rounded-full shadow-lg"
-            aria-label="Ir a mapas"
-            style={{ animationDelay: "0.4s", opacity: 0 }}
-          >
-            <MapPin className="w-6 h-6 text-white group-hover:text-cyan-100 transition-colors" />
-          </Link>
         </section>
+        {/* GPS Button - Fixed container for alignment */}
+        <div className="fixed bottom-0 left-0 z-50 w-full flex justify-center px-4 pointer-events-none">
+          <div className="w-full max-w-3xl relative h-0">
+            <Link
+              href="/maps"
+              className="absolute bottom-6 right-0 w-14 h-14 bg-blue-500 hover:bg-blue-600 hover:shadow-glow-sm transition-all duration-300 flex items-center justify-center group hover-lift animate-fade-in rounded-full shadow-lg shadow-blue-500/30 pointer-events-auto"
+              aria-label="Ir a mapas"
+              style={{ animationDelay: "0.4s", opacity: 0 }}
+            >
+              <MapPin className="w-6 h-6 text-white transition-colors" />
+            </Link>
+          </div>
+        </div>
       </main>
     </div>
   );
