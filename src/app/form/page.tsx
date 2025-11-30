@@ -74,7 +74,7 @@ ${
   };
 
   return (
-    <div className="min-h-screen w-full bg-linear-to-br from-zinc-100 via-zinc-50 to-zinc-100 dark:from-zinc-950 dark:via-zinc-900 dark:to-black font-sans">
+    <div className="min-h-screen w-full bg-zinc-50 dark:bg-zinc-950 font-sans transition-colors duration-300">
       <main className="max-w-2xl mx-auto flex flex-col items-center p-4 md:p-8">
         {/* Botón de regreso */}
         <div className="w-full mb-6">
@@ -88,7 +88,7 @@ ${
         </div>
 
         {/* Contenedor del formulario */}
-        <div className="w-full bg-zinc-200 dark:bg-zinc-800 rounded-3xl shadow-2xl p-8 md:p-12">
+        <div className="w-full bg-white dark:bg-zinc-800 rounded-3xl shadow-xl p-8 md:p-12 border border-zinc-100 dark:border-zinc-700">
           {/* Toggle Delivery/Recoger */}
           <div className="flex gap-3 mb-8 bg-zinc-400 dark:bg-zinc-700 rounded-full p-2">
             <button
@@ -97,7 +97,7 @@ ${
               className={`cursor-pointer flex-1 flex items-center justify-center gap-2 py-3 px-6 rounded-full font-semibold transition-all duration-300 ${
                 tipoServicio === "delivery"
                   ? "bg-blue-500 text-white shadow-lg"
-                  : "bg-transparent text-zinc-700 dark:text-zinc-300"
+                  : "bg-transparent text-zinc-600 dark:text-zinc-300 hover:bg-white/50 dark:hover:bg-black/20"
               }`}
             >
               <Bike className="w-5 h-5" />
@@ -109,7 +109,7 @@ ${
               className={`cursor-pointer flex-1 flex items-center justify-center gap-2 py-3 px-6 rounded-full font-semibold transition-all duration-300 ${
                 tipoServicio === "recoger"
                   ? "bg-blue-500 text-white shadow-lg"
-                  : "bg-transparent text-zinc-700 dark:text-zinc-300"
+                  : "bg-transparent text-zinc-600 dark:text-zinc-300 hover:bg-white/50 dark:hover:bg-black/20"
               }`}
             >
               <MapPin className="w-5 h-5" />
@@ -135,7 +135,7 @@ ${
                   onChange={handleChange}
                   required
                   suppressHydrationWarning
-                  className="w-full px-4 py-4 bg-zinc-300 dark:bg-zinc-600 text-zinc-900 dark:text-white rounded-2xl appearance-none focus:outline-none focus:ring-2 focus:ring-green-500 transition-all duration-300 cursor-pointer pr-12"
+                  className="w-full px-4 py-4 bg-zinc-50 dark:bg-zinc-600 border border-zinc-200 dark:border-zinc-500 text-zinc-900 dark:text-white rounded-2xl appearance-none focus:outline-none focus:ring-2 focus:ring-green-500 transition-all duration-300 cursor-pointer pr-12"
                 >
                   <option value="">Selecciona un producto</option>
                   {productos.map((producto, index) => (
@@ -161,7 +161,7 @@ ${
                 required
                 suppressHydrationWarning
                 autoComplete="name"
-                className="w-full px-4 py-4 bg-zinc-300 dark:bg-zinc-600 text-zinc-900 dark:text-white rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300 placeholder-zinc-500 dark:placeholder-zinc-400"
+                className="w-full px-4 py-4 bg-zinc-50 dark:bg-zinc-600 border border-zinc-200 dark:border-zinc-500 text-zinc-900 dark:text-white rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300 placeholder-zinc-400 dark:placeholder-zinc-400"
                 placeholder=""
               />
             </div>
@@ -180,7 +180,7 @@ ${
                   required={tipoServicio === "delivery"}
                   suppressHydrationWarning
                   autoComplete="street-address"
-                  className="w-full px-4 py-4 bg-zinc-300 dark:bg-zinc-600 text-zinc-900 dark:text-white rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300 placeholder-zinc-500 dark:placeholder-zinc-400"
+                  className="w-full px-4 py-4 bg-zinc-50 dark:bg-zinc-600 border border-zinc-200 dark:border-zinc-500 text-zinc-900 dark:text-white rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300 placeholder-zinc-400 dark:placeholder-zinc-400"
                   placeholder=""
                 />
               </div>
@@ -198,7 +198,7 @@ ${
                   value={formData.codigoPais}
                   onChange={handleChange}
                   suppressHydrationWarning
-                  className="w-20 px-3 py-4 bg-zinc-300 dark:bg-zinc-600 text-zinc-900 dark:text-white rounded-2xl focus:outline-none focus:ring-2 focus:ring-green-500 transition-all duration-300 text-center"
+                  className="w-20 px-3 py-4 bg-zinc-50 dark:bg-zinc-600 border border-zinc-200 dark:border-zinc-500 text-zinc-900 dark:text-white rounded-2xl focus:outline-none focus:ring-2 focus:ring-green-500 transition-all duration-300 text-center"
                   placeholder="+51"
                 />
                 <input
@@ -209,7 +209,7 @@ ${
                   required
                   suppressHydrationWarning
                   autoComplete="tel"
-                  className="flex-1 px-4 py-4 bg-zinc-300 dark:bg-zinc-600 text-zinc-900 dark:text-white rounded-2xl focus:outline-none focus:ring-2 focus:ring-green-500 transition-all duration-300 placeholder-zinc-500 dark:placeholder-zinc-400"
+                  className="flex-1 px-4 py-4 bg-zinc-50 dark:bg-zinc-600 border border-zinc-200 dark:border-zinc-500 text-zinc-900 dark:text-white rounded-2xl focus:outline-none focus:ring-2 focus:ring-green-500 transition-all duration-300 placeholder-zinc-400 dark:placeholder-zinc-400"
                   placeholder=""
                 />
               </div>

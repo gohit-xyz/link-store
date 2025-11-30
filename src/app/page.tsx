@@ -29,9 +29,9 @@ export default function Home() {
   const currentProducts = PRODUCTS;
 
   return (
-    <div className="min-h-screen w-full bg-zinc-950 dark:bg-black font-sans relative overflow-hidden">
+    <div className="min-h-screen w-full bg-zinc-50 dark:bg-black font-sans relative overflow-hidden transition-colors duration-300">
       {/* Background gradient glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-96 gradient-glow pointer-events-none" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-96 bg-blue-500/20 dark:bg-transparent dark:gradient-glow pointer-events-none blur-3xl" />
 
       <main className="max-w-3xl mx-auto flex flex-col items-center p-4 gap-6 relative z-10">
         {/* Theme Toggle */}
@@ -49,7 +49,7 @@ export default function Home() {
 
         {/* Main Content Section - Glass Effect */}
         <section
-          className="flex flex-col w-full items-center gap-8 p-8 glass rounded-3xl backdrop-blur-xl border border-white/10 animate-fade-in-up"
+          className="flex flex-col w-full items-center gap-8 p-8 glass rounded-3xl backdrop-blur-xl border border-white/20 dark:border-white/10 animate-fade-in-up shadow-xl dark:shadow-none"
           style={{ animationDelay: "0.2s", opacity: 0 }}
         >
           {/* Profile Image with Glow */}
@@ -70,10 +70,10 @@ export default function Home() {
               <MapPin className="w-4 h-4" />
               <span>Ovalo Santa Anita</span>
             </div>
-            <h1 className="text-4xl font-bold bg-gradient-to-r from-white via-cyan-200 to-indigo-300 bg-clip-text text-transparent">
+            <h1 className="text-4xl font-bold bg-gradient-to-r from-zinc-900 via-cyan-600 to-indigo-600 dark:from-white dark:via-cyan-200 dark:to-indigo-300 bg-clip-text text-transparent">
               Nombre de Tienda
             </h1>
-            <p className="text-zinc-400 dark:text-zinc-500 leading-relaxed">
+            <p className="text-zinc-600 dark:text-zinc-500 leading-relaxed">
               Encuentra los mejores productos en una sola plataforma. Calidad y
               precio garantizados.
             </p>
@@ -124,7 +124,7 @@ export default function Home() {
                 <div
                   className={`absolute inset-0 bg-gradient-to-br ${color} opacity-0 group-hover:opacity-20 transition-opacity duration-300`}
                 />
-                <Icon className="w-5 h-5 text-zinc-300 group-hover:text-white relative z-10 transition-colors duration-300" />
+                <Icon className="w-5 h-5 text-zinc-600 dark:text-zinc-300 group-hover:text-zinc-900 dark:group-hover:text-white relative z-10 transition-colors duration-300" />
               </a>
             ))}
           </div>
@@ -147,7 +147,7 @@ export default function Home() {
                 className={`relative flex-1 py-3 px-6 rounded-xl font-semibold transition-colors duration-300 z-10 ${
                   activeTab === "servicios"
                     ? "text-white"
-                    : "text-zinc-400 hover:text-zinc-200"
+                    : "text-zinc-500 dark:text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200"
                 }`}
               >
                 Servicios
@@ -157,7 +157,7 @@ export default function Home() {
                 className={`relative flex-1 py-3 px-6 rounded-xl font-semibold transition-colors duration-300 z-10 ${
                   activeTab === "productos"
                     ? "text-white"
-                    : "text-zinc-400 hover:text-zinc-200"
+                    : "text-zinc-500 dark:text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200"
                 }`}
               >
                 Productos
@@ -180,7 +180,7 @@ export default function Home() {
                       <div className="w-12 h-12 rounded-xl bg-gradient-primary flex items-center justify-center shadow-glow-sm flex-shrink-0">
                         <Sparkles className="w-6 h-6 text-white" />
                       </div>
-                      <h3 className="text-lg font-semibold text-white group-hover:text-cyan-300 transition-colors">
+                      <h3 className="text-lg font-semibold text-zinc-800 dark:text-white group-hover:text-cyan-600 dark:group-hover:text-cyan-300 transition-colors">
                         {item.title}
                       </h3>
                     </div>
@@ -217,10 +217,10 @@ export default function Home() {
 
                     {/* Content */}
                     <div className="p-5 space-y-2">
-                      <h3 className="text-xl font-bold text-white group-hover:text-cyan-300 transition-colors line-clamp-1">
+                      <h3 className="text-xl font-bold text-zinc-800 dark:text-white group-hover:text-cyan-600 dark:group-hover:text-cyan-300 transition-colors line-clamp-1">
                         {item.title}
                       </h3>
-                      <p className="text-sm text-zinc-400 line-clamp-2 leading-relaxed">
+                      <p className="text-sm text-zinc-600 dark:text-zinc-400 line-clamp-2 leading-relaxed">
                         {item.description}
                       </p>
                       {item.price && (
@@ -241,11 +241,11 @@ export default function Home() {
         {/* GPS Button - Modern Floating Glass */}
         <Link
           href="/maps"
-          className="fixed dark:bg-blue-500 bottom-6 right-150 w-14 h-14 glass  hover:shadow-glow-sm transition-all duration-300 flex items-center justify-center group hover-lift z-40 animate-fade-in rounded-full"
+          className="fixed dark:bg-blue-500 bottom-6 right-156 w-14 h-14 glass hover:shadow-glow-sm transition-all duration-300 flex items-center justify-center group hover-lift z-40 animate-fade-in rounded-full shadow-lg"
           aria-label="Ir a mapas"
           style={{ animationDelay: "0.4s", opacity: 0 }}
         >
-          <MapPin className="w-6 h-6 text-white group-hover:text-cyan-300 transition-colors" />
+          <MapPin className="w-6 h-6 dark:text-white group-hover:text-cyan-100 transition-colors" />
         </Link>
       </main>
     </div>
