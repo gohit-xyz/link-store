@@ -4,7 +4,7 @@ import { useState } from "react";
 import { ThemeToggle } from "../components/theme-toggle";
 import Image from "next/image";
 import Link from "next/link";
-import { MapPin } from "lucide-react";
+import { MapPin, Sparkles } from "lucide-react";
 import Carousel from "../components/carousel";
 
 // Import images
@@ -29,102 +29,135 @@ export default function Home() {
   const currentProducts = PRODUCTS;
 
   return (
-    <div className="min-h-screen w-full bg-zinc-50 font-sans dark:bg-black">
-      <main className="max-w-3xl mx-auto flex flex-col items-center p-4 gap-4 relative">
-        <ThemeToggle />
-        {/* Carousel */}
-        <Carousel />
+    <div className="min-h-screen w-full bg-zinc-950 dark:bg-black font-sans relative overflow-hidden">
+      {/* Background gradient glow */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-96 gradient-glow pointer-events-none" />
 
-        {/* Content */}
-        <section className="flex flex-col w-full items-center gap-6 p-6 bg-orange-200 dark:bg-orange-900/20 rounded-xl">
-          {/* Profile Image */}
-          <div className="flex justify-center">
-            <Image
-              src={profileImg}
-              alt="Profile"
-              className="w-24 h-24 rounded-full object-cover"
-            />
+      <main className="max-w-3xl mx-auto flex flex-col items-center p-4 gap-6 relative z-10">
+        {/* Theme Toggle */}
+        <div className="self-end">
+          <ThemeToggle />
+        </div>
+
+        {/* Carousel - Modern */}
+        <div
+          className="w-full animate-fade-in-up"
+          style={{ animationDelay: "0.1s", opacity: 0 }}
+        >
+          <Carousel />
+        </div>
+
+        {/* Main Content Section - Glass Effect */}
+        <section
+          className="flex flex-col w-full items-center gap-8 p-8 glass rounded-3xl backdrop-blur-xl border border-white/10 animate-fade-in-up"
+          style={{ animationDelay: "0.2s", opacity: 0 }}
+        >
+          {/* Profile Image with Glow */}
+          <div className="relative group">
+            <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-indigo-600 rounded-full opacity-75 group-hover:opacity-100 blur transition duration-500 group-hover:duration-200 animate-pulse-glow" />
+            <div className="relative">
+              <Image
+                src={profileImg}
+                alt="Profile"
+                className="w-28 h-28 rounded-full object-cover ring-4 ring-cyan-500/30 relative"
+              />
+            </div>
           </div>
 
-          {/* Header Content */}
-          <header className="text-center space-y-2">
-            <h1 className="text-2xl font-bold text-zinc-900 dark:text-white">
+          {/* Header Content - Modern Typography */}
+          <header className="text-center space-y-3 max-w-lg">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-gradient-primary rounded-full text-white text-sm font-medium mb-2">
+              <Sparkles className="w-4 h-4" />
+              <span>Tienda Premium</span>
+            </div>
+            <h1 className="text-4xl font-bold bg-gradient-to-r from-white via-cyan-200 to-indigo-300 bg-clip-text text-transparent">
               Tienda Online
             </h1>
-            <p className="text-zinc-600 dark:text-zinc-400 max-w-md">
-              Encuentra los mejores productos en una sola plataforma, no busques
-              mas los mejores producto.
+            <p className="text-zinc-400 dark:text-zinc-500 leading-relaxed">
+              Encuentra los mejores productos en una sola plataforma. Calidad y
+              precio garantizados.
             </p>
           </header>
 
-          {/* Social Media Icons */}
-          <div className="flex gap-4 justify-center">
-            <a
-              href="https://instagram.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group p-3 bg-white dark:bg-zinc-700 rounded-full shadow-md hover:shadow-lg transition-all duration-300 hover:scale-110"
-              aria-label="Instagram"
-            >
-              <InstagramIcon className="w-6 h-6 text-pink-600 dark:text-pink-400 group-hover:text-pink-500" />
-            </a>
-            <a
-              href="https://facebook.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group p-3 bg-white dark:bg-zinc-700 rounded-full shadow-md hover:shadow-lg transition-all duration-300 hover:scale-110"
-              aria-label="Facebook"
-            >
-              <FacebookIcon className="w-6 h-6 text-blue-600 dark:text-blue-400 group-hover:text-blue-500" />
-            </a>
-            <a
-              href="https://tiktok.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group p-3 bg-white dark:bg-zinc-700 rounded-full shadow-md hover:shadow-lg transition-all duration-300 hover:scale-110"
-              aria-label="TikTok"
-            >
-              <TikTokIcon className="w-6 h-6 text-zinc-900 dark:text-white group-hover:text-zinc-700" />
-            </a>
-            <a
-              href="https://youtube.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group p-3 bg-white dark:bg-zinc-700 rounded-full shadow-md hover:shadow-lg transition-all duration-300 hover:scale-110"
-              aria-label="YouTube"
-            >
-              <YouTubeIcon className="w-6 h-6 text-red-600 dark:text-red-400 group-hover:text-red-500" />
-            </a>
-            <a
-              href="https://twitter.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group p-3 bg-white dark:bg-zinc-700 rounded-full shadow-md hover:shadow-lg transition-all duration-300 hover:scale-110"
-              aria-label="Twitter"
-            >
-              <TwitterIcon className="w-6 h-6 text-sky-500 dark:text-sky-400 group-hover:text-sky-600" />
-            </a>
+          {/* Social Media Icons - Modern Glass Buttons */}
+          <div className="flex gap-3 justify-center flex-wrap">
+            {[
+              {
+                icon: InstagramIcon,
+                href: "https://instagram.com",
+                color: "from-pink-500 to-rose-500",
+                label: "Instagram",
+              },
+              {
+                icon: FacebookIcon,
+                href: "https://facebook.com",
+                color: "from-blue-600 to-blue-500",
+                label: "Facebook",
+              },
+              {
+                icon: TikTokIcon,
+                href: "https://tiktok.com",
+                color: "from-zinc-800 to-zinc-900",
+                label: "TikTok",
+              },
+              {
+                icon: YouTubeIcon,
+                href: "https://youtube.com",
+                color: "from-red-600 to-red-500",
+                label: "YouTube",
+              },
+              {
+                icon: TwitterIcon,
+                href: "https://twitter.com",
+                color: "from-sky-500 to-sky-600",
+                label: "Twitter",
+              },
+            ].map(({ icon: Icon, href, color, label }) => (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative p-3.5 glass rounded-2xl hover:scale-110 transition-all duration-300 hover-lift overflow-hidden"
+                aria-label={label}
+              >
+                <div
+                  className={`absolute inset-0 bg-gradient-to-br ${color} opacity-0 group-hover:opacity-20 transition-opacity duration-300`}
+                />
+                <Icon className="w-5 h-5 text-zinc-300 group-hover:text-white relative z-10 transition-colors duration-300" />
+              </a>
+            ))}
           </div>
 
-          {/* Tab Navigation */}
+          {/* Modern Tab Navigation with Sliding Indicator */}
           <div className="w-full">
-            <div className="flex gap-2 p-1 bg-zinc-200 dark:bg-zinc-800 rounded-lg">
+            <div className="relative p-1.5 glass rounded-2xl inline-flex w-full">
+              {/* Sliding background */}
+              <div
+                className={`absolute top-1.5 bottom-1.5 w-[calc(50%-6px)] bg-gradient-primary rounded-xl transition-transform duration-300 ease-out shadow-glow-sm ${
+                  activeTab === "productos"
+                    ? "translate-x-[calc(100%+6px)]"
+                    : "translate-x-0"
+                }`}
+              />
+
+              {/* Tab buttons */}
               <button
                 onClick={() => setActiveTab("servicios")}
-                className={`flex-1 py-2 px-4 cursor-pointer rounded-md font-medium transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 ${
+                className={`relative flex-1 py-3 px-6 rounded-xl font-semibold transition-colors duration-300 z-10 ${
                   activeTab === "servicios"
-                    ? "bg-green-500 text-white hover:bg-green-600 focus:ring-green-500"
-                    : "bg-transparent text-zinc-700 dark:text-zinc-300 hover:bg-zinc-300 dark:hover:bg-zinc-700 focus:ring-zinc-400"
+                    ? "text-white"
+                    : "text-zinc-400 hover:text-zinc-200"
                 }`}
               >
                 Servicios
               </button>
               <button
                 onClick={() => setActiveTab("productos")}
-                className={`flex-1 py-2 px-4 cursor-pointer rounded-md font-medium transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 ${
+                className={`relative flex-1 py-3 px-6 rounded-xl font-semibold transition-colors duration-300 z-10 ${
                   activeTab === "productos"
-                    ? "bg-green-500 text-white hover:bg-green-600 focus:ring-green-500"
-                    : "bg-transparent text-zinc-700 dark:text-zinc-300 hover:bg-zinc-300 dark:hover:bg-zinc-700 focus:ring-zinc-400"
+                    ? "text-white"
+                    : "text-zinc-400 hover:text-zinc-200"
                 }`}
               >
                 Productos
@@ -133,57 +166,69 @@ export default function Home() {
           </div>
 
           {/* Items Display */}
-          <div className="w-full space-y-3">
+          <div className="w-full space-y-4">
             {activeTab === "servicios" ? (
-              // Servicios en lista simple
-              currentServices.map((item, index) => (
-                <div
-                  key={item.id}
-                  className={`w-full p-4 rounded-lg shadow-sm hover:shadow-md transition-all ${
-                    index % 2 === 0
-                      ? "bg-white dark:bg-zinc-700"
-                      : "bg-zinc-100 dark:bg-zinc-800"
-                  }`}
-                >
-                  <h3 className="text-lg font-medium text-zinc-900 dark:text-white">
-                    ✅ {item.title}
-                  </h3>
-                </div>
-              ))
-            ) : (
-              // Productos en cards con imágenes
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {currentProducts.map((item) => (
+              // Servicios - Modern Minimal Cards
+              <div className="space-y-3">
+                {currentServices.map((item, index) => (
                   <div
                     key={item.id}
-                    className="group bg-white dark:bg-zinc-800 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden hover:scale-[1.02]"
+                    className="group glass rounded-2xl p-5 hover:bg-white/5 transition-all duration-300 hover-lift animate-fade-in"
+                    style={{ animationDelay: `${index * 0.1}s`, opacity: 0 }}
                   >
-                    {/* Imagen del producto */}
-                    <div className="relative h-48 overflow-hidden bg-zinc-100 dark:bg-zinc-700">
+                    <div className="flex items-center gap-4">
+                      <div className="w-12 h-12 rounded-xl bg-gradient-primary flex items-center justify-center shadow-glow-sm flex-shrink-0">
+                        <Sparkles className="w-6 h-6 text-white" />
+                      </div>
+                      <h3 className="text-lg font-semibold text-white group-hover:text-cyan-300 transition-colors">
+                        {item.title}
+                      </h3>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              // Productos - Modern Glass Cards
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {currentProducts.map((item, index) => (
+                  <div
+                    key={item.id}
+                    className="group glass rounded-3xl overflow-hidden hover:shadow-glow transition-all duration-500 hover-lift animate-fade-in"
+                    style={{ animationDelay: `${index * 0.1}s`, opacity: 0 }}
+                  >
+                    {/* Image with overlay */}
+                    <div className="relative h-48 overflow-hidden bg-zinc-900">
                       <Image
                         src={item.image}
                         alt={item.title}
                         fill
-                        className="object-cover group-hover:scale-110 transition-transform duration-300"
+                        className="object-cover group-hover:scale-110 transition-transform duration-700"
                       />
-                      {/* Badge de categoría */}
-                      <div className="absolute top-3 left-3 bg-green-500 text-white text-xs font-semibold px-3 py-1 rounded-full">
-                        {item.category}
+                      {/* Gradient overlay on hover */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+                      {/* Category badge with modern style */}
+                      <div className="absolute top-3 left-3 px-3 py-1.5 glass rounded-full">
+                        <span className="text-xs font-semibold bg-gradient-to-r from-cyan-400 to-indigo-400 bg-clip-text text-transparent">
+                          {item.category}
+                        </span>
                       </div>
                     </div>
 
-                    {/* Contenido del producto */}
-                    <div className="p-4 space-y-2">
-                      <h3 className="text-lg font-bold text-zinc-900 dark:text-white line-clamp-1">
+                    {/* Content */}
+                    <div className="p-5 space-y-2">
+                      <h3 className="text-xl font-bold text-white group-hover:text-cyan-300 transition-colors line-clamp-1">
                         {item.title}
                       </h3>
-                      <p className="text-sm text-zinc-600 dark:text-zinc-400 line-clamp-2">
+                      <p className="text-sm text-zinc-400 line-clamp-2 leading-relaxed">
                         {item.description}
                       </p>
                       {item.price && (
-                        <p className="text-xl font-bold text-green-600 dark:text-green-400">
-                          {item.price}
-                        </p>
+                        <div className="pt-2">
+                          <span className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-indigo-400 bg-clip-text text-transparent">
+                            {item.price}
+                          </span>
+                        </div>
                       )}
                     </div>
                   </div>
@@ -193,13 +238,14 @@ export default function Home() {
           </div>
         </section>
 
-        {/* GPS Button - Sticky at bottom right */}
+        {/* GPS Button - Modern Floating Glass */}
         <Link
           href="/maps"
-          className="self-end sticky bottom-4 w-14 h-14 bg-green-500 hover:bg-green-600 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 z-40"
+          className="self-end sticky bottom-6 w-14 h-14 glass rounded-2xl hover:shadow-glow-sm transition-all duration-300 flex items-center justify-center group hover-lift z-40 animate-fade-in"
           aria-label="Ir a mapas"
+          style={{ animationDelay: "0.4s", opacity: 0 }}
         >
-          <MapPin className="w-6 h-6" />
+          <MapPin className="w-6 h-6 text-cyan-400 group-hover:text-cyan-300 transition-colors" />
         </Link>
       </main>
     </div>
